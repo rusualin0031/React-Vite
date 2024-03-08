@@ -7,6 +7,16 @@ function handleClick() {
   alert("ciao");
 }
 
+function handleChange(e) {
+  console.log("e.target.value");
+}
+
+function handleSubmit(e) {
+  e.preventDefault();
+  console.log("e");
+}
+
+
 function App() {  
   
     const cities =[
@@ -55,6 +65,10 @@ function App() {
       </div>    
 
       <button onClick={handleClick}>alert</button> 
+      <input type="text" onChange={handleChange}/>
+      <form onSubmit={handleSubmit}>
+        <button type='submit'>invia</button>
+      </form>
     </>
   )
 }
