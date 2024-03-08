@@ -48,7 +48,9 @@ function App() {
           {city.description}
           </Card>
       ))}
-      </div>     
+      </div>    
+
+      <button onClick={() => alert("ciao")}>alert</button> 
     </>
   )
 }
