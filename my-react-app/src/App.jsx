@@ -3,6 +3,10 @@
 import './App.css'
 import Card from './components/Card'
 
+function handleClick() {
+  alert("ciao");
+}
+
 function App() {  
   
     const cities =[
@@ -50,7 +54,7 @@ function App() {
       ))}
       </div>    
 
-      <button onClick={() => alert("ciao")}>alert</button> 
+      <button onClick={handleClick}>alert</button> 
     </>
   )
 }
