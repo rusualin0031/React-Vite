@@ -1,5 +1,4 @@
-
-
+import { useState } from 'react';
 import './App.css'
 import Card from './components/Card'
 
@@ -17,7 +16,9 @@ function handleSubmit(e) {
 }
 
 
-function App() {  
+function App() { 
+
+  const [count, setCount] = useState(0);
   
     const cities =[
       {
@@ -69,8 +70,13 @@ function App() {
       <form onSubmit={handleSubmit}>
         <button type='submit'>invia</button>
       </form>
+        <div className='card'>
+          <button onClick={() => setCount((count) => count +1)}>
+            count is {count}
+          </button>
+        </div>
     </>
-  )
+  );
 }
 
 
