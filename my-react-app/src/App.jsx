@@ -44,7 +44,7 @@ function App() {
     ]);
   return (
     <>
-    <Example></Example>
+    <Example cities={cities}></Example>
     <CardForm addCity={addCity}></CardForm>
       <div className='grid grid-cols-4 gap-5'>
       {cities.map((city) => (

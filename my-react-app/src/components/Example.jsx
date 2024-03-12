@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 
-function Example () {
+function Example (cities) {
     const [count, setCount] = useState(0);
 
     useEffect (() =>{
+        localStorage.setItem('count', count.toString());
         document.title = `Conteggio: ${count}`;
-    }, [count]);
+        console.log('ciao');
+    }, [count, cities]);
    // const handleClick = () => {
     //    setCount(count + 1);
      //   document.title = `Conteggio: ${count}`;
