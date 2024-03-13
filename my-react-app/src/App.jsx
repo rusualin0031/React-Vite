@@ -4,6 +4,16 @@ import Card from './components/Card'
 import CardForm from './components/CardForm';
 import Example from './components/Example'
 
+function formReducer(state, action) {
+  switch (action.type) {
+    case "CHANGE_FIELD":
+      return {...state, [action.field]: action.value}
+      case "RESET_FORM":
+        return { name: "", email: ""};
+        default:
+          return state;
+  }
+}
 
 function App() { 
     const [items, setItems] = useState([1,2,3]);
