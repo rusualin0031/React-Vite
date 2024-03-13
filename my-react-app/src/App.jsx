@@ -27,7 +27,9 @@ function App() {
       dispatchFormState({type: "CHANGE_FIELD", field, value})
     }
 
-   
+    const resetForm = () => {
+      dispatchFormState({type: "RESET_FORM"})
+    }
 
     const [cities,setCities] = useState ([
       {
