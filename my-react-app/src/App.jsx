@@ -77,7 +77,21 @@ function App() {
             <p className='text-gray-800'>{item.body}</p>
           </div>
         ))}
-      </div>     
+      </div> 
+
+      <form>
+          <div>
+            <label htmlFor='name'>Name:</label>
+            <input 
+              type='text'
+              id='name'
+              name='name'
+              value={formState.name}
+              onChange={(e) => handleFieldChange("name", e.target.value)}
+            />
+          </div>
+         
+      </form>    
     </>
   );
 }
