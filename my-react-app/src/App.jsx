@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 import './App.css'
 import Card from './components/Card'
 import CardForm from './components/CardForm';
@@ -8,6 +8,7 @@ import Example from './components/Example'
 function App() { 
     const [items, setItems] = useState([1,2,3]);
     const [data, setData] = useState([]);
+    const [formState, dispatchFormState] = useReducer(formReducer, {name: '', email: ''})
 
     const addCity = (city) => {
         setCities([...cities, city]);
@@ -21,6 +22,12 @@ function App() {
        console.log(data);
       });
    }, []);
+
+    const handleFieldChange = (field, value) => {
+      dispatchFormState({type: "CHANGE_FIELD", field, value})
+    }
+
+   
 
     const [cities,setCities] = useState ([
       {
@@ -100,6 +107,8 @@ function App() {
               onChange={(e) => handleFieldChange("email", e.target.value)}
             />
           </div>
+          <button onClick={resetForm}>Reset Form</button>
+          <button>Send</button>
       </form>    
     </>
   );
