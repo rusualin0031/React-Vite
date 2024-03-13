@@ -4,10 +4,10 @@ function Example (cities) {
     const [count, setCount] = useState(0);
 
     useEffect (() =>{
-        localStorage.setItem('count', count.toString());
-        document.title = `Conteggio: ${count}`;
-        console.log('ciao');
-    }, [count, cities]);
+       localStorage.setItem('count', count.toString());
+       document.title = `Conteggio: ${count}`;
+       console.log('ciao');
+    }, [count]);
    // const handleClick = () => {
     //    setCount(count + 1);
      //   document.title = `Conteggio: ${count}`;

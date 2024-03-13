@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css'
 import Card from './components/Card'
 import CardForm from './components/CardForm';
@@ -6,10 +6,21 @@ import Example from './components/Example'
 
 
 function App() { 
+    const [items, setItems] = useState([1,2,3]);
+    const [data, setData] = useState([]);
 
     const addCity = (city) => {
         setCities([...cities, city]);
     };
+
+    useEffect (() =>{
+      fetch('https://jsonplaceholder.typicode.com/posts')
+      .then((response)=> response.json())
+      .then((data) => {
+       setData(data); 
+       console.log(data);
+      });
+   }, []);
 
     const [cities,setCities] = useState ([
       {
@@ -55,8 +66,18 @@ function App() {
           imgURL={city.imgURL}>
           {city.description}
           </Card>
-      ))}
-      </div>    
+        ))}
+      </div>   
+
+       <div className='grid grid-cols-4 gap-5'>
+      {data.map((item) => (
+          <div key={item.id} className='bg-slate-400 rounded-lg p-3'>
+            <p className='text-red-500 mb-1'>userid: {item.userId}</p>
+            <h2 className='text-xl mb-3'>{item.title}</h2>
+            <p className='text-gray-800'>{item.body}</p>
+          </div>
+        ))}
+      </div>     
     </>
   );
 }
