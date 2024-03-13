@@ -90,7 +90,16 @@ function App() {
               onChange={(e) => handleFieldChange("name", e.target.value)}
             />
           </div>
-         
+          <div>
+            <label htmlFor='email'>Email:</label>
+            <input 
+              type='email'
+              id='email'
+              name='email'
+              value={formState.email}
+              onChange={(e) => handleFieldChange("email", e.target.value)}
+            />
+          </div>
       </form>    
     </>
   );
