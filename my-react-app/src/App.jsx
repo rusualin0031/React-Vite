@@ -40,6 +40,10 @@ function App() {
     const resetForm = () => {
       dispatchFormState({type: "RESET_FORM"})
     }
+    const sendForm = (e) => {
+      e.preventDefault();
+      console.log(formState)
+    }
 
     const [cities,setCities] = useState ([
       {
@@ -74,6 +78,31 @@ function App() {
     ]);
   return (
     <>
+    <form>
+          <div>
+            <label htmlFor='name'>Name:</label>
+            <input 
+              type='text'
+              id='name'
+              name='name'
+              value={formState.name}
+              onChange={(e) => handleFieldChange("name", e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor='email'>Email:</label>
+            <input 
+              type='email'
+              id='email'
+              name='email'
+              value={formState.email}
+              onChange={(e) => handleFieldChange("email", e.target.value)}
+            />
+          </div>
+          <button onClick={resetForm}>Reset Form</button>
+          <button onClick={sendForm}>Send</button>
+      </form>    
+
     <Example cities={cities}></Example>
     <CardForm addCity={addCity}></CardForm>
       <div className='grid grid-cols-4 gap-5'>
@@ -97,31 +126,6 @@ function App() {
           </div>
         ))}
       </div> 
-
-      <form>
-          <div>
-            <label htmlFor='name'>Name:</label>
-            <input 
-              type='text'
-              id='name'
-              name='name'
-              value={formState.name}
-              onChange={(e) => handleFieldChange("name", e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor='email'>Email:</label>
-            <input 
-              type='email'
-              id='email'
-              name='email'
-              value={formState.email}
-              onChange={(e) => handleFieldChange("email", e.target.value)}
-            />
-          </div>
-          <button onClick={resetForm}>Reset Form</button>
-          <button>Send</button>
-      </form>    
     </>
   );
 }
