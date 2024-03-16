@@ -1,8 +1,9 @@
-import { useState, useEffect, useReducer } from 'react';
+import { useState, useEffect, useReducer, useContext } from 'react';
 import './App.css'
 import Card from './components/Card'
 import CardForm from './components/CardForm';
 import Example from './components/Example'
+import { ProvaContext } from './stores/ProvaContext';
 
 function formReducer(state, action) {
   switch (action.type) {
