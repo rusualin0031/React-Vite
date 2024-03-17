@@ -3,7 +3,6 @@ import Card from './components/Card';
 import CardForm from './components/CardForm';
 import Example from './components/Example';
 import { useSelector } from "react-redux";
-import { add } from './redux/citiesSlices';
 
 
 function App() { 
