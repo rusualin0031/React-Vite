@@ -1,13 +1,14 @@
-import './App.css'
-import Card from './components/Card'
+import './App.css';
+import Card from './components/Card';
 import CardForm from './components/CardForm';
-import Example from './components/Example'
+import Example from './components/Example';
 import { useSelector } from "react-redux";
-import { add } from "./redux/citisSlice";
+import { add } from './redux/citiesSlices';
 
 
 function App() { 
-    const cities = useSelector((state)) => state.cities.value;
+    const cities = useSelector((state) => state.cities.value);
+
   return (
     <>
       <Example></Example>
@@ -23,7 +24,7 @@ function App() {
             </Card>
           ))}
         </div> 
-      </>
+    </>
   );
 }
 

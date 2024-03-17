@@ -1,5 +1,4 @@
-import { useState, useEffect, useContext } from "react";
-import { ProvaContext } from "../stores/ProvaContext";
+
 
 function Example (cities) {
     const { count, setCount } = useContext(ProvaContext);

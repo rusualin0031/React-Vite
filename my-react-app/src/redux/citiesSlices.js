@@ -1,4 +1,4 @@
-import { createReducer, createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 export const citiesSlice = createSlice({
     name: 'cities',
@@ -31,14 +31,15 @@ export const citiesSlice = createSlice({
                 description: "Description for one single Card lorem ipsum",
                 imgURL: "https://images.pexels.com/photos/3166785/pexels-photo-3166785.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 isVisited: false,
-              }
-        ]
-    }
+              },
+        ],
+    },
+    reducers: {
+      add: (state, action) => {
+        state.value.push(action.payload)
+      },
+    },
 })
-
-
-
-
 
 
 export const { add } = citiesSlice.actions
