@@ -1,20 +1,10 @@
-import { useState, useEffect, useReducer, useContext } from 'react';
 import './App.css'
 import Card from './components/Card'
 import CardForm from './components/CardForm';
 import Example from './components/Example'
-import { ProvaContext } from './stores/ProvaContext';
+import { useSelector } from "react-redux";
+import { add } from "./redux/citisSlice";
 
-function formReducer(state, action) {
-  switch (action.type) {
-    case "CHANGE_FIELD":
-      return {...state, [action.field]: action.value}
-      case "RESET_FORM":
-        return { name: "", email: ""};
-        default:
-          return state;
-  }
-}
 
 function App() { 
     const [count, setCount] = useState(0);
