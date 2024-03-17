@@ -17,6 +17,7 @@ function formReducer(state, action) {
 }
 
 function App() { 
+    const [count, setCount] = useState(0);
     const [items, setItems] = useState([1,2,3]);
     const [data, setData] = useState([]);
     const [formState, dispatchFormState] = useReducer(formReducer, {name: '', email: ''})
@@ -78,7 +79,7 @@ function App() {
     
     ]);
   return (
-    <>
+    <ProvaContext.Provider value={{ count, setCount}}>
     <form>
           <div>
             <label htmlFor='name'>Name:</label>
@@ -127,7 +128,7 @@ function App() {
           </div>
         ))}
       </div> 
-    </>
+      </ProvaContext.Provider>
   );
 }
 
