@@ -1,6 +1,9 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { add } from "../redux/citiesSlice";
 
-
-function CardForm({ addCity}) {
+function CardForm() {
+    const dispatch = useDispatch();
     const [formData, setFormData] = useState({
         name: "",
         description: "",
@@ -32,11 +35,8 @@ function CardForm({ addCity}) {
             imgURL: "",
             isVisited: false,
         });
-          addCity
-        addCity(city)
+         dispatch(add(city));
     };
-
-    const { count } = useContext(ProvaContext);
 
     return(
         <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-85 mb-10 bg-zinc-900 p-5 rounded-lg">
